@@ -1,9 +1,25 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import Logo from '../assets/logo.png'
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false)
+	const location = useLocation()
+
+	const scrollToContact = e => {
+		e.preventDefault()
+
+		if (location.pathname !== '/') {
+			window.location.href = '/#kontakt'
+			return
+		}
+
+		const contactSection = document.getElementById('kontakt')
+		if (contactSection) {
+			contactSection.scrollIntoView({ behavior: 'smooth' })
+			setIsOpen(false) // zamyka menu mobilne po kliknięciu
+		}
+	}
 
 	return (
 		<nav className='bg-secondBg py-4 shadow- fixed w-full z-1000'>
@@ -19,7 +35,6 @@ const Navbar = () => {
 						</div>
 					</Link>
 
-					{/* Desktop Menu */}
 					<div className='hidden md:flex items-center space-x-8'>
 						<Link to='/' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
 							Strona główna
@@ -33,12 +48,13 @@ const Navbar = () => {
 						<Link to='/cennik' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
 							Cennik
 						</Link>
-						<button className='bg-brownMain text-white px-6 py-2 rounded-xs hover:bg-gold hover:text-grayish transition-all cursor-pointer duration-300'>
+						<button
+							onClick={scrollToContact}
+							className='bg-brownMain text-white px-6 py-2 rounded-xs hover:bg-gold hover:text-grayish transition-all cursor-pointer duration-300'>
 							Skontaktuj się
 						</button>
 					</div>
 
-					{/* Mobile Menu Button */}
 					<button className='md:hidden text-grayish' onClick={() => setIsOpen(!isOpen)}>
 						<svg
 							className='w-6 h-6'
@@ -53,7 +69,6 @@ const Navbar = () => {
 					</button>
 				</div>
 
-				{/* Mobile Menu */}
 				{isOpen && (
 					<div className='md:hidden mt-4 space-y-4'>
 						<Link to='/' className='block text-grayish hover:text-brownMain transition-colors'>
@@ -68,7 +83,9 @@ const Navbar = () => {
 						<Link to='/cennik' className='block text-grayish hover:text-brownMain transition-colors'>
 							Cennik
 						</Link>
-						<button className='w-full bg-brownMain text-white px-6 py-2 rounded hover:bg-opacity-90 transition-colors'>
+						<button
+							onClick={scrollToContact}
+							className='w-full bg-brownMain text-white px-6 py-2 rounded hover:bg-opacity-90 transition-colors'>
 							Skontaktuj się
 						</button>
 					</div>

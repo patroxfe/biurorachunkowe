@@ -32,16 +32,13 @@ const contactData = {
 
 export default function Contact() {
 	return (
-		<section className='bg-secondBg py-16'>
+		<section id='kontakt' className='bg-secondBg py-16'>
 			<div className='wrapper px-4'>
-				{/* Nagłówek */}
 				<p className='text-sm text-brownMain text-center'>Dane kontaktowe</p>
 				<h2 className='text-3xl font-semibold text-brownMain text-center mb-8'>Skontaktuj się</h2>
 
-				{/* Główna sekcja - podział 50/50 */}
-				<div className='flex flex-col lg:flex-row lg:gap-8'>
-					{/* Lewa sekcja - Dane kontaktowe (50%) */}
-					<div className='lg:w-1/2'>
+				<div className='flex flex-col lg:flex-row gap-8'>
+					<div className='lg:w-1/2 order-2 xl:order-1'>
 						<div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
 							{contactData.contactInfo.map((info, index) => (
 								<div
@@ -56,7 +53,6 @@ export default function Contact() {
 							))}
 						</div>
 
-						{/* Znajdziesz mnie również */}
 						<div className='mt-8 '>
 							<p className='text-grayishSecondary text-base mb-3'>Znajdziesz mnie również:</p>
 							<a href='#' className='inline-block'>
@@ -65,10 +61,9 @@ export default function Contact() {
 						</div>
 					</div>
 
-					{/* Prawa sekcja - Formularz (50%) */}
-					<div className='lg:w-1/2'>
-						<div className='bg-secondBg rounded-xs shadow-normal p-8'>
-							<h3 className='text-brownMain text-2xl font-semibold text-center mb-6'>Wyślij wiadomość</h3>
+					<div className='lg:w-1/2 order-1 xl:order-2'>
+						<div className='bg-secondBg rounded-xs shadow-normal px-4 py-8 xl:px-8'>
+							<h3 className='text-brownMain text-xl lg:text-2xl font-semibold text-center mb-6'>Wyślij wiadomość</h3>
 							<form className='space-y-4'>
 								<div>
 									<label className='text-grayish text-sm mb-1 block'>Imię i nazwisko / Nazwa firmy:</label>

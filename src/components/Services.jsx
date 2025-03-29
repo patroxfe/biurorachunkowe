@@ -44,7 +44,7 @@ export default function Services() {
 				<h2 className='text-3xl font-semibold text-brownMain text-center mb-8'>Zakres usług</h2>
 				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
 					{Object.values(servicesData).map((category, index) => (
-						<div key={index} className='service-category  p-6 rounded-lg '>
+						<div key={index} className=' 2xl:p-5 rounded-lg '>
 							<h3 className='text-xl font-semibold text-brownMain mb-4'>{category.title}</h3>
 							<ul className='space-y-3'>
 								{category.items.map((item, itemIndex) => (

@@ -97,7 +97,6 @@ const pricingData = {
 export default function Pricing() {
 	return (
 		<>
-			{/* Header section */}
 			<div className='bg-mainBg pt-48 pb-32'>
 				<div className='wrapper px-4'>
 					<div className='text-center'>
@@ -114,10 +113,8 @@ export default function Pricing() {
 				</div>
 			</div>
 
-			{/* Content section */}
 			<div className='bg-secondBg py-16'>
 				<div className='wrapper px-4'>
-					{/* Księgowość */}
 					<div className='mb-16'>
 						<h3 className='text-center text-2xl text-brownMain font-semibold mb-8 max-w-[500px] mx-auto'>
 							Podatkowa Księga Przychodów i Rozchodów oraz ryczałt
