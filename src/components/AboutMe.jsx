@@ -5,7 +5,7 @@ import Button from './Button'
 
 export default function AboutMe() {
 	return (
-		<section className='bg-secondBg py-16'>
+		<section id='o-mnie' className='bg-secondBg py-16'>
 			<div className='wrapper px-4 flex flex-col md:flex-row justify-between'>
 				<div className='mb-12 md:max-w-1/2 text-center md:text-start'>
 					<p className='text-sm text-brownMain'>Witaj na stronie mojego biura...</p>

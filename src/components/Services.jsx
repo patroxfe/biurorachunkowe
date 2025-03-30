@@ -38,7 +38,7 @@ const servicesData = {
 
 export default function Services() {
 	return (
-		<section className='py-16 bg-mainBg'>
+		<section id='oferta' className='py-16 bg-mainBg'>
 			<div className='wrapper px-4 2xl:px-0'>
 				<p className='text-sm text-brownMain text-center'>Moja oferta</p>
 				<h2 className='text-3xl font-semibold text-brownMain text-center mb-8'>Zakres usług</h2>

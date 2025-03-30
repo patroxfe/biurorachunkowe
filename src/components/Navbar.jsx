@@ -1,58 +1,57 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Logo from '../assets/logo.png'
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const location = useLocation()
+	const navigate = useNavigate()
 
-	const scrollToContact = e => {
-		e.preventDefault()
-
-		if (location.pathname !== '/') {
-			window.location.href = '/#kontakt'
-			return
-		}
-
-		const contactSection = document.getElementById('kontakt')
-		if (contactSection) {
-			contactSection.scrollIntoView({ behavior: 'smooth' })
-			setIsOpen(false) // zamyka menu mobilne po kliknięciu
+	// Funkcja do przewijania na górę
+	const scrollToTop = path => {
+		if (location.pathname === path) {
+			window.scrollTo({ top: 0, behavior: 'smooth' })
+		} else {
+			navigate(path)
 		}
 	}
 
 	return (
-		<nav className='bg-secondBg py-4 shadow- fixed w-full z-1000'>
+		<nav className='bg-secondBg py-4 shadow-normal fixed w-full z-1000'>
 			<div className='wrapper px-4'>
 				<div className='flex items-center justify-between'>
-					<Link to='/' className='flex items-center tracking-tight space-x-2'>
+					<button
+						onClick={() => scrollToTop('/')}
+						className='flex items-center tracking-tight space-x-2 cursor-pointer'>
 						<img src={Logo} alt='Biuro Rachunkowe' className='h-12' />
 						<div className='text-brownMain'>
 							<p className='text-xl font-semibold '>Biuro rachunkowe</p>
-							<p className='font-semibold'>
+							<p className='font-semibold text-left'>
 								OnLine <span className='font-normal'>| Ewa Reluga</span>
 							</p>
 						</div>
-					</Link>
+					</button>
 
-					<div className='hidden md:flex items-center space-x-8'>
-						<Link to='/' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
+					<div className='hidden md:flex items-center space-x-8 text-sm lg:text-base'>
+						<button
+							onClick={() => scrollToTop('/')}
+							className='text-brownMain hover:text-brownMain transition-colors font-medium cursor-pointer'>
 							Strona główna
-						</Link>
-						<Link to='/o-nas' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
+						</button>
+						<Link to='/#o-mnie' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
 							O mnie
 						</Link>
-						<Link to='/oferta' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
+						<Link to='/#oferta' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
 							Oferta
 						</Link>
 						<Link to='/cennik' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
 							Cennik
 						</Link>
-						<button
-							onClick={scrollToContact}
-							className='bg-brownMain text-white px-6 py-2 rounded-xs hover:bg-gold hover:text-grayish transition-all cursor-pointer duration-300'>
-							Skontaktuj się
-						</button>
+						<Link to='/#kontakt'>
+							<button className='bg-brownMain text-white px-6 py-2 rounded-xs hover:bg-gold hover:text-grayish transition-all cursor-pointer duration-300'>
+								Skontaktuj się
+							</button>
+						</Link>
 					</div>
 
 					<button className='md:hidden text-grayish' onClick={() => setIsOpen(!isOpen)}>
@@ -71,23 +70,25 @@ const Navbar = () => {
 
 				{isOpen && (
 					<div className='md:hidden mt-4 space-y-4'>
-						<Link to='/' className='block text-grayish hover:text-brownMain transition-colors'>
+						<button
+							onClick={() => scrollToTop('/')}
+							className='block text-grayish hover:text-brownMain transition-colors'>
 							Strona główna
-						</Link>
-						<Link to='/o-nas' className='block text-grayish hover:text-brownMain transition-colors'>
+						</button>
+						<Link to='/#o-mnie' className='block text-grayish hover:text-brownMain transition-colors'>
 							O mnie
 						</Link>
-						<Link to='/oferta' className='block text-grayish hover:text-brownMain transition-colors'>
+						<Link to='/#oferta' className='block text-grayish hover:text-brownMain transition-colors'>
 							Oferta
 						</Link>
 						<Link to='/cennik' className='block text-grayish hover:text-brownMain transition-colors'>
 							Cennik
 						</Link>
-						<button
-							onClick={scrollToContact}
-							className='w-full bg-brownMain text-white px-6 py-2 rounded hover:bg-opacity-90 transition-colors'>
-							Skontaktuj się
-						</button>
+						<Link to='/#kontakt'>
+							<button className='w-full bg-brownMain text-white px-6 py-2 rounded hover:bg-opacity-90 transition-colors'>
+								Skontaktuj się
+							</button>
+						</Link>
 					</div>
 				)}
 			</div>

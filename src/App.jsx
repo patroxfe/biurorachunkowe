@@ -4,12 +4,16 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Pricing from './pages/Pricing'
 import Privacy from './pages/Privacy'
+import ScrollToSection from './components/ScrollToSection'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
 	return (
 		<Router>
 			<div className='min-h-screen flex flex-col'>
 				<Navbar />
+				<ScrollToTop />
+				<ScrollToSection />
 				<main className='flex-grow'>
 					<Routes>
 						<Route path='/' element={<Home />} />
