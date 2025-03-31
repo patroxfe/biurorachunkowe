@@ -55,7 +55,7 @@ export default function Contact() {
 
 						<div className='mt-8 '>
 							<p className='text-grayishSecondary text-base mb-3'>Znajdziesz mnie również:</p>
-							<a href='#' className='inline-block'>
+							<a href='https://www.facebook.com/profile.php?id=61571016414548' target='_blank' className='inline-block'>
 								<img src={fbIcon} alt='Facebook' className='w-8 h-8' />
 							</a>
 						</div>

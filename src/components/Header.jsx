@@ -1,5 +1,5 @@
 import React from 'react'
-import heroImage from '../assets/images/hero-img-bro.png'
+import heroImage from '../assets/images/hero-img-bro.webp'
 import Button from './Button'
 
 export default function Header() {
