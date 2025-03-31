@@ -4,8 +4,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Pricing from './pages/Pricing'
 import Privacy from './pages/Privacy'
-import ScrollToSection from './components/ScrollToSection'
-import ScrollToTop from './components/ScrollToTop'
+import ScrollToSection from './utils/ScrollToSection'
+import ScrollToTop from './utils/ScrollToTop'
 
 function App() {
 	return (

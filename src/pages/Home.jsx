@@ -1,6 +1,7 @@
 import AboutMe from '../components/AboutMe'
 import Contact from '../components/Contact'
 import Header from '../components/Header'
+import Newsletter from '../components/Newsletter'
 import Services from '../components/Services'
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
 			<AboutMe />
 			<Services />
 			<Contact />
+			<Newsletter />
 		</div>
 	)
 }

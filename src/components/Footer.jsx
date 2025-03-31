@@ -3,7 +3,7 @@ import Logo from '../assets/logo.png'
 
 const Footer = () => {
 	return (
-		<footer className='bg-mainBg'>
+		<footer className='bg-secondBg'>
 			<div className='wrapper px-4 py-12'>
 				<div className='grid md:grid-cols-4 gap-8'>
 					<div>
@@ -63,7 +63,7 @@ const Footer = () => {
 					</div>
 				</div>
 
-				<div className='mt-12 pt-8 border-t border-stone-400'>
+				<div className='mt-12 pt-8 border-t border-stone-300'>
 					<div className='flex flex-col md:flex-row justify-between items-center'>
 						<p className='text-sm text-grayish'>
 							© {new Date().getFullYear()} Biuro Rachunkowe. Wszelkie prawa zastrzeżone.

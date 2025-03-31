@@ -35,12 +35,7 @@ const pricingData = {
 				{ service: 'Sporządzenie zaświadczenia dla pracownika', price: '10zł/szt' },
 				{ service: 'Rejestracja do PFRON', price: '50zł' },
 				{ service: 'Sporządzenie wniosku o refundację', price: '50zł' },
-			],
-		},
-		{
-			title: 'PFRON',
-			headers: ['Usługa', 'Cena'],
-			rows: [
+				{ service: 'PFRON', price: '' },
 				{ service: 'Sporządzenie umowy o pracę', price: '30zł' },
 				{ service: 'Wystawienie świadectwa pracy', price: '30zł' },
 				{ service: 'Sporządzenie umowy zlecenia', price: '30zł' },
@@ -48,8 +43,8 @@ const pricingData = {
 				{ service: 'Sporządzenie umowy o dzieło', price: '30zł' },
 				{ service: 'Zgłoszenie RUD', price: '30zł' },
 				{ service: 'Zgłoszenie do ZUS/ Wyrejestrowanie z ZUS', price: '10zł/w cenie' },
-				{ service: 'Naliczanie PPK lista płac', price: '20zł za osobę' },
-				{ service: 'Odliczanie zajęć komorniczych lista płac', price: '10zł każda sztuka' },
+				{ service: 'Naliczanie PPK lista płac', price: '20zł os.' },
+				{ service: 'Odliczanie zajęć komorniczych lista płac', price: '10zł/szt' },
 				{ service: 'Inne nie wymienione odliczenia i naliczenia', price: '20zł' },
 				{ service: 'Korekta deklaracji, naliczenie i zgłoszenie z winy klienta', price: '50zł' },
 				{ service: 'Sporządzenie wniosku o zasiłek opiekuńczy', price: '30zł' },
@@ -74,7 +69,7 @@ const pricingData = {
 				{ service: 'Roczne zeznanie podatkowe właściciela', price: 'W cenie' },
 				{
 					service:
-						'Roczne zeznanie podatkowe właściciela zawierające dodatkowe dokumenty(np. rozliczenie z małżonkiem, ulgi etc. nie będące w posiadaniu biura)',
+						'Roczne zeznanie podatkowe właściciela zawierające dodatkowe dokumenty (np. rozliczenie z małżonkiem, ulgi etc. nie będące w posiadaniu biura)',
 					price: '10zł za każdy dodatkowy dokument',
 				},
 				{
@@ -88,7 +83,30 @@ const pricingData = {
 				{ service: 'Sporządzenie deklaracji VAT8 za klienta bez VAT', price: '30zł sztuka' },
 				{ service: 'Sporządzenie/aktualizacja VAT R', price: '30zł sztuka' },
 				{ service: 'Sporządzenie faktury w imieniu klienta', price: '10zł sztuka' },
-				{ service: 'Sporządzenie noty korygującej', price: '10zł sztuka' },
+				{ service: 'Sporządzenie noty korygującej w imieniu klienta', price: '10zł sztuka' },
+				{ service: 'Sporządzenie wezwania do zapłaty w imieniu klienta', price: '10zł sztuka' },
+				{
+					service: 'Wystawienie wezwania do zapłaty dla klienta, który nie rozlicza się z biurem terminowo',
+					price: '15zł sztuka',
+				},
+				{ service: 'Korekta deklaracji z winy klienta', price: '50zł' },
+				{ service: 'Korekta raportów w ZUS', price: '30zł sztuka' },
+				{ service: 'Sporządzenie sprawozdań dla banku, do ubezpieczenia etc.', price: '40zł sztuka' },
+				{ service: 'Sprawozdanie do GUS', price: '30zł za godzinę' },
+				{ service: 'Aktualizacja wpisu w CEiDG', price: 'W cenie' },
+				{ service: 'Pismo wyjaśniające do US/ZUS etc.', price: '30zł za godzinę' },
+				{ service: 'JPK KPiR na żądanie US', price: '50zł' },
+				{ service: 'Korekta JPK', price: '40zł' },
+				{ service: 'Wniosek A1', price: '100zł' },
+				{ service: 'Rozliczenie wniosku A1', price: '100zł' },
+				{ service: 'Usługi świadczone w święta i dni wolne', price: '80 zł za godzinę' },
+				{ service: 'Usługi świadczone po godzinach pracy', price: '50 zł za godzinę' },
+				{ service: 'Usługi wykraczające poza cennik', price: 'Od 50zł za godzinę (cena ustalana indywidualnie)' },
+				{
+					service:
+						'Zerwanie współpracy w ciągu 2 miesięcy ( wdrożenie, baza klientów i wstępne przygotowanie dokumentów)',
+					price: '150zł',
+				},
 			],
 		},
 	],
@@ -125,8 +143,10 @@ export default function Pricing() {
 								<thead>
 									<tr className='bg-brownMain'>
 										<th className='py-4 px-6 text-left text-white font-semibold w-1/2'>Ilość dokumentów księgowych</th>
-										<th className='py-4 px-6 text-right text-white font-semibold w-1/4'>Cena Ryczałt</th>
-										<th className='py-4 px-6 text-right text-white font-semibold w-1/4'>Cena KPiR</th>
+										<th className='py-4 px-6 text-right text-white font-semibold w-1/4'>
+											Cena Ryczałt/ryczałt + VAT i JPK
+										</th>
+										<th className='py-4 px-6 text-right text-white font-semibold w-1/4'>Cena KPiR/KPiR + VAT i JPK</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -170,7 +190,7 @@ export default function Pricing() {
 							<table className='w-full'>
 								<thead>
 									<tr className='bg-brownMain'>
-										<th className='py-4 px-6 text-left text-white font-semibold w-3/4'>Usługa</th>
+										<th className='py-4 px-6 text-left text-white font-semibold w-3/4'>Rozliczenie</th>
 										<th className='py-4 px-6 text-right text-white font-semibold w-1/4'>Cena</th>
 									</tr>
 								</thead>
@@ -200,9 +220,9 @@ export default function Pricing() {
 						</div>
 					</div>
 
-					{/* PFRON */}
+					{/* Pozostałe usługi */}
 					<div className='mb-16'>
-						<h3 className='text-center text-2xl text-brownMain font-semibold mb-8'>PFRON</h3>
+						<h3 className='text-center text-2xl text-brownMain font-semibold mb-8'>Dodatkowe usługi</h3>
 						{/* Desktop */}
 						<div className='hidden md:block bg-white rounded-lg shadow-normal'>
 							<table className='w-full'>
@@ -222,33 +242,9 @@ export default function Pricing() {
 								</tbody>
 							</table>
 						</div>
-					</div>
-
-					{/* Pozostałe usługi */}
-					<div className='mb-16'>
-						<h3 className='text-center text-2xl text-brownMain font-semibold mb-8'>Pozostałe usługi</h3>
-						{/* Desktop */}
-						<div className='hidden md:block bg-white rounded-lg shadow-normal'>
-							<table className='w-full'>
-								<thead>
-									<tr className='bg-brownMain'>
-										<th className='py-4 px-6 text-left text-white font-semibold w-3/4'>Usługa</th>
-										<th className='py-4 px-6 text-right text-white font-semibold w-1/4'>Cena</th>
-									</tr>
-								</thead>
-								<tbody>
-									{pricingData.sections[3].rows?.map((row, index) => (
-										<tr key={index} className={index % 2 === 0 ? 'bg-secondBg' : 'bg-mainBg'}>
-											<td className='py-4 px-6 text-grayish w-3/4'>{row.service}</td>
-											<td className='py-4 px-6 text-grayish w-1/4 text-right'>{row.price}</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-						</div>
 						{/* Mobile */}
 						<div className='md:hidden space-y-4'>
-							{pricingData.sections[3].rows?.map((row, index) => (
+							{pricingData.sections[2].rows?.map((row, index) => (
 								<div key={index} className='bg-white rounded-lg shadow-normal p-4'>
 									<div className='text-grayish mb-2 max-w-[80%]'>{row.service}</div>
 									<div className='flex justify-end items-center text-sm'>
@@ -261,6 +257,12 @@ export default function Pricing() {
 							))}
 						</div>
 					</div>
+
+					<p className='text-sm text-grayish'>
+						Ceny usług waloryzowane są raz w roku 01 stycznia.
+						<br />
+						Cennik może ulec rozszerzeniu ze względu na powtarzalność dotychczas niewycenionych usług.
+					</p>
 
 					<div className='mt-12 text-center'>
 						<p className='text-grayishSecondary mb-6'>Potrzebujesz indywidualnej wyceny? Skontaktuj się z nami!</p>

@@ -67,23 +67,48 @@ export default function Contact() {
 							<form className='space-y-4'>
 								<div>
 									<label className='text-grayish text-sm mb-1 block'>Imię i nazwisko / Nazwa firmy:</label>
-									<input type='text' className='w-full p-3 border border-gray-300 rounded bg-secondBg' />
+									<input type='text' className='w-full p-3 border border-gray-300 rounded bg-secondBg' maxLength={50} />
 								</div>
 								<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
 									<div>
 										<label className='text-grayish text-sm mb-1 block'>Adres e-mail:</label>
-										<input type='email' className='w-full p-3 border border-gray-300 rounded bg-secondBg' />
+										<input
+											type='email'
+											className='w-full p-3 border border-gray-300 rounded bg-secondBg'
+											maxLength={50}
+										/>
 									</div>
 									<div>
 										<label className='text-grayish text-sm mb-1 block'>Numer telefonu:</label>
-										<input type='tel' className='w-full p-3 border border-gray-300 rounded bg-secondBg' />
+										<div className='flex items-center border border-gray-300 rounded bg-secondBg'>
+											<span className='px-3 py-3 font-medium text-grayish border-r border-gray-300'>+48</span>
+											<input
+												type='tel'
+												className='w-full p-3 bg-secondBg focus:outline-none'
+												maxLength={9}
+												pattern='[0-9]*'
+												onInput={e => {
+													e.target.value = e.target.value.replace(/[^0-9]/g, '')
+												}}
+											/>
+										</div>
 									</div>
 								</div>
 								<div>
 									<label className='text-grayish text-sm mb-1 block'>Treść wiadomości:</label>
 									<textarea
 										rows='6'
-										className='w-full p-3 border border-gray-300 rounded bg-secondBg max-h-[300px] min-h-[120px]'></textarea>
+										className='w-full p-3 border border-gray-300 rounded bg-secondBg max-h-[300px] min-h-[120px]'
+										maxLength={800}
+										onInput={e => {
+											const messageLength = document.getElementById('messageLength')
+											if (messageLength) {
+												messageLength.textContent = e.target.value.length
+											}
+										}}></textarea>
+									<div className='text-xs text-grayish mt-1 text-right'>
+										<span id='messageLength'>0</span>/800
+									</div>
 								</div>
 								<button className='w-full bg-gold text-grayish py-3 rounded hover:bg-opacity-90 transition-colors'>
 									Wyślij wiadomość
