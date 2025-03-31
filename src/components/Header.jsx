@@ -1,6 +1,7 @@
 import React from 'react'
 import heroImage from '../assets/images/hero-img-bro.webp'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
 	return (
@@ -14,7 +15,9 @@ export default function Header() {
 						<p className='text-grayish text-lg leading-5'>
 							Moje Biuro Rachunkowe OnLine jest członkiem Stowarzyszenia Księgowych w Polsce!
 						</p>
-						<Button>Skontaktuj się</Button>
+						<Link to='/#kontakt'>
+							<Button>Skontaktuj się</Button>
+						</Link>
 					</div>
 					<div className='relative overflow-x-hidden'>
 						<img src={heroImage} alt='Księgowa' className='rounded-lg  lg:ml-16' />

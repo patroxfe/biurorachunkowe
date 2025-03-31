@@ -2,6 +2,7 @@ import React from 'react'
 import certyfikat1 from '../assets/images/certyfikat1.webp'
 import certyfikat2 from '../assets/images/certyfikat2.webp'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
 export default function AboutMe() {
 	return (
@@ -16,7 +17,9 @@ export default function AboutMe() {
 							Księgowych w Polsce. Księgowością zajmuję się od 7 lat. Specjalizuję się w Podatku dochodowym od osób
 							fizycznych, Jednoosobowych działalnościach gospodarczych oraz Spółkach cywilnych. Rozliczam ulgę IP BOX.
 						</p>
-						<Button>Sprawdź ofertę</Button>
+						<Link to='/#oferta'>
+							<Button>Sprawdź ofertę</Button>
+						</Link>
 					</div>
 				</div>
 				<div className='flex justify-between sm:justify-baseline sm:space-x-10 overflow-x-hidden'>

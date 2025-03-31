@@ -14,6 +14,12 @@ const Navbar = () => {
 		} else {
 			navigate(path)
 		}
+		setIsOpen(false) // Zamknij menu po kliknięciu
+	}
+
+	// Funkcja zamykająca menu
+	const closeMenu = () => {
+		setIsOpen(false)
 	}
 
 	return (
@@ -54,7 +60,7 @@ const Navbar = () => {
 						</Link>
 					</div>
 
-					<button className='md:hidden text-grayish' onClick={() => setIsOpen(!isOpen)}>
+					<button className='md:hidden text-grayish px-2' onClick={() => setIsOpen(!isOpen)}>
 						<svg
 							className='w-6 h-6'
 							fill='none'
@@ -75,16 +81,25 @@ const Navbar = () => {
 							className='block text-grayish hover:text-brownMain transition-colors'>
 							Strona główna
 						</button>
-						<Link to='/#o-mnie' className='block text-grayish hover:text-brownMain transition-colors'>
+						<Link
+							to='/#o-mnie'
+							className='block text-grayish hover:text-brownMain transition-colors'
+							onClick={closeMenu}>
 							O mnie
 						</Link>
-						<Link to='/#oferta' className='block text-grayish hover:text-brownMain transition-colors'>
+						<Link
+							to='/#oferta'
+							className='block text-grayish hover:text-brownMain transition-colors'
+							onClick={closeMenu}>
 							Oferta
 						</Link>
-						<Link to='/cennik' className='block text-grayish hover:text-brownMain transition-colors'>
+						<Link
+							to='/cennik'
+							className='block text-grayish hover:text-brownMain transition-colors'
+							onClick={closeMenu}>
 							Cennik
 						</Link>
-						<Link to='/#kontakt'>
+						<Link to='/#kontakt' onClick={closeMenu}>
 							<button className='w-full bg-brownMain text-white px-6 py-2 rounded hover:bg-opacity-90 transition-colors'>
 								Skontaktuj się
 							</button>
