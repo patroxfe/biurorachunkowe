@@ -23,7 +23,7 @@ export default function Pricing() {
 			<div className='bg-secondBg py-16'>
 				<div className='wrapper px-4'>
 					<div className='mb-16'>
-						<h3 className='text-center text-2xl text-brownMain font-semibold mb-8 max-w-[500px] mx-auto'>
+						<h3 className='text-center text-xl md:text-2xl bg-brownMain text-white md:text-brownMain md:bg-inherit font-semibold md:mb-8 p-4 w-full md:max-w-[500px] mx-auto'>
 							Podatkowa Księga Przychodów i Rozchodów oraz ryczałt
 						</h3>
 						{/* Desktop */}
@@ -50,9 +50,9 @@ export default function Pricing() {
 							</table>
 						</div>
 						{/* Mobile */}
-						<div className='md:hidden space-y-4'>
+						<div className='md:hidden shadow-normal'>
 							{pricingData.sections[0].rows?.map((row, index) => (
-								<div key={index} className='bg-white rounded-lg shadow-normal p-4'>
+								<div key={index} className={index % 2 === 0 ? 'bg-secondBg p-4' : 'bg-mainBg p-4'}>
 									<div className='text-grayish mb-2 max-w-[80%]'>{row.documents}</div>
 									<div className='flex justify-end items-center text-sm'>
 										<div className='ml-4'>
@@ -73,7 +73,9 @@ export default function Pricing() {
 
 					{/* Kadry i płace */}
 					<div className='mb-16'>
-						<h3 className='text-center text-2xl text-brownMain font-semibold mb-8'>Kadry i płace</h3>
+						<h3 className='text-center text-xl md:text-2xl bg-brownMain text-white md:text-brownMain md:bg-inherit font-semibold md:mb-8 p-4 w-full md:max-w-[500px] mx-auto'>
+							Kadry i płace
+						</h3>
 						{/* Desktop */}
 						<div className='hidden md:block bg-white rounded-lg shadow-normal'>
 							<table className='w-full'>
@@ -94,9 +96,9 @@ export default function Pricing() {
 							</table>
 						</div>
 						{/* Mobile */}
-						<div className='md:hidden space-y-4'>
+						<div className='md:hidden shadow-normal'>
 							{pricingData.sections[1].rows?.map((row, index) => (
-								<div key={index} className='bg-white rounded-lg shadow-normal p-4'>
+								<div key={index} className={index % 2 === 0 ? 'bg-secondBg p-4' : 'bg-mainBg p-4'}>
 									<div className='text-grayish mb-2 max-w-[80%]'>{row.service}</div>
 									<div className='flex justify-end items-center text-sm'>
 										<div className='ml-4'>
@@ -111,7 +113,9 @@ export default function Pricing() {
 
 					{/* Pozostałe usługi */}
 					<div className='mb-16'>
-						<h3 className='text-center text-2xl text-brownMain font-semibold mb-8'>Dodatkowe usługi</h3>
+						<h3 className='text-center text-xl md:text-2xl bg-brownMain text-white md:text-brownMain md:bg-inherit font-semibold md:mb-8 p-4 w-full md:max-w-[500px] mx-auto'>
+							Dodatkowe usługi
+						</h3>
 						{/* Desktop */}
 						<div className='hidden md:block bg-white rounded-lg shadow-normal'>
 							<table className='w-full'>
@@ -132,9 +136,9 @@ export default function Pricing() {
 							</table>
 						</div>
 						{/* Mobile */}
-						<div className='md:hidden space-y-4'>
+						<div className='md:hidden shadow-normal'>
 							{pricingData.sections[2].rows?.map((row, index) => (
-								<div key={index} className='bg-white rounded-lg shadow-normal p-4'>
+								<div key={index} className={index % 2 === 0 ? 'bg-secondBg p-4' : 'bg-mainBg p-4'}>
 									<div className='text-grayish mb-2 max-w-[80%]'>{row.service}</div>
 									<div className='flex justify-end items-center text-sm'>
 										<div className='ml-4'>
