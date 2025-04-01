@@ -28,7 +28,9 @@ const Footer = () => {
 						<ul className='space-y-2'>
 							<li>
 								<Link to='/#' className='text-grayish hover:text-brownMain transition-colors cursor-pointer'>
-									<button onClick={() => scrollToTop('/')} className='cursor-pointer'>Strona główna</button>
+									<button onClick={() => scrollToTop('/')} className='cursor-pointer'>
+										Strona główna
+									</button>
 								</Link>
 							</li>
 							<li>
@@ -52,9 +54,20 @@ const Footer = () => {
 					<div>
 						<h3 className='text-lg font-semibold text-brownMain mb-4'>Kontakt</h3>
 						<ul className='space-y-2'>
-							<li className='text-grayish'>Wybickiego 4/42, Grójec</li>
-							<li className='text-grayish'>+48 605 541 681</li>
-							<li className='text-grayish'>ewa.reluga@outlook.com</li>
+							<li className='text-grayish'>
+								<a
+									href='https://www.google.com/maps/place/Wybickiego+4/42,+Grójec'
+									target='_blank'
+									rel='noopener noreferrer'>
+									Wybickiego 4/42, Grójec
+								</a>
+							</li>
+							<li className='text-grayish'>
+								<a href='tel:+48605541681'>+48 605 541 681</a>
+							</li>
+							<li className='text-grayish'>
+								<a href='mailto:ewa.reluga@outlook.com'>ewa.reluga@outlook.com</a>
+							</li>
 						</ul>
 					</div>
 

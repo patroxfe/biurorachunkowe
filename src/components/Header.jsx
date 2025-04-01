@@ -13,31 +13,30 @@ export default function Header() {
 						<h1 className='text-4xl md:text-5xl text-brownMain  tracking-tight'>
 							Kompleksowa obsługa <span className='font-semibold'>księgowa i podatkowa</span>
 						</h1>
-						<p className='text-grayish text-lg leading-5'>
-							Moje Biuro Rachunkowe OnLine jest członkiem{' '}
-							<p className='font-medium'>
+						<div className='text-grayish text-lg leading-5 flex flex-col justify-center lg:justify-start'>
+							<p>Moje Biuro Rachunkowe OnLine jest członkiem </p>
+							<span className='font-medium'>
 								<Typewriter
 									onInit={typewriter => {
 										typewriter
 											.typeString('Stowarzyszenia Księgowych w Polsce!')
 											.callFunction(() => {
-												// Ukrycie kursora po 3 sekundach
 												setTimeout(() => {
 													const cursor = document.querySelector('.Typewriter__cursor')
 													if (cursor) {
 														cursor.style.display = 'none'
 													}
-												}, 2500)
+												}, 3200)
 											})
 											.start()
 									}}
 									options={{
 										cursor: '|',
-										delay: 80,
+										delay: 90,
 									}}
 								/>
-							</p>
-						</p>
+							</span>
+						</div>
 						<Link to='/#kontakt'>
 							<Button>Skontaktuj się</Button>
 						</Link>

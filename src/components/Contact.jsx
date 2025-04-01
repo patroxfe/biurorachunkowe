@@ -55,7 +55,11 @@ export default function Contact() {
 
 						<div className='mt-8 '>
 							<p className='text-grayishSecondary text-base mb-3'>Znajdziesz mnie również:</p>
-							<a href='https://www.facebook.com/profile.php?id=61571016414548' target='_blank' className='inline-block'>
+							<a
+								href='https://www.facebook.com/profile.php?id=61571016414548'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='inline-block'>
 								<img src={fbIcon} alt='Facebook' className='w-8 h-8' />
 							</a>
 						</div>
@@ -66,27 +70,46 @@ export default function Contact() {
 							<h3 className='text-brownMain text-xl lg:text-2xl font-semibold text-center mb-6'>Wyślij wiadomość</h3>
 							<form className='space-y-4'>
 								<div>
-									<label className='text-grayish text-sm mb-1 block'>Imię i nazwisko / Nazwa firmy:</label>
-									<input type='text' className='w-full p-3 border border-gray-300 rounded bg-secondBg' maxLength={50} />
+									<label htmlFor='name' className='text-grayish text-sm mb-1 block'>
+										Imię i nazwisko / Nazwa firmy:
+									</label>
+									<input
+										id='name'
+										name='name'
+										type='text'
+										className='w-full p-3 border border-gray-300 rounded bg-secondBg'
+										maxLength={50}
+										aria-label='Imię i nazwisko lub nazwa firmy'
+									/>
 								</div>
 								<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
 									<div>
-										<label className='text-grayish text-sm mb-1 block'>Adres e-mail:</label>
+										<label htmlFor='email' className='text-grayish text-sm mb-1 block'>
+											Adres e-mail:
+										</label>
 										<input
+											id='email'
+											name='email'
 											type='email'
 											className='w-full p-3 border border-gray-300 rounded bg-secondBg'
 											maxLength={50}
+											aria-label='Adres email'
 										/>
 									</div>
 									<div>
-										<label className='text-grayish text-sm mb-1 block'>Numer telefonu:</label>
+										<label htmlFor='phone' className='text-grayish text-sm mb-1 block'>
+											Numer telefonu:
+										</label>
 										<div className='flex items-center border border-gray-300 rounded bg-secondBg'>
 											<span className='px-3 py-3 font-medium text-grayish border-r border-gray-300'>+48</span>
 											<input
+												id='phone'
+												name='phone'
 												type='tel'
 												className='w-full p-3 bg-secondBg focus:outline-none'
 												maxLength={9}
 												pattern='[0-9]*'
+												aria-label='Numer telefonu'
 												onInput={e => {
 													e.target.value = e.target.value.replace(/[^0-9]/g, '')
 												}}
@@ -95,11 +118,16 @@ export default function Contact() {
 									</div>
 								</div>
 								<div>
-									<label className='text-grayish text-sm mb-1 block'>Treść wiadomości:</label>
+									<label htmlFor='message' className='text-grayish text-sm mb-1 block'>
+										Treść wiadomości:
+									</label>
 									<textarea
+										id='message'
+										name='message'
 										rows='6'
 										className='w-full p-3 border border-gray-300 rounded bg-secondBg max-h-[300px] min-h-[120px]'
 										maxLength={800}
+										aria-label='Treść wiadomości'
 										onInput={e => {
 											const messageLength = document.getElementById('messageLength')
 											if (messageLength) {
@@ -110,7 +138,10 @@ export default function Contact() {
 										<span id='messageLength'>0</span>/800
 									</div>
 								</div>
-								<button className='w-full bg-gold text-grayish py-3 rounded hover:bg-opacity-90 transition-colors'>
+								<button
+									type='submit'
+									className='w-full bg-gold text-grayish py-3 rounded hover:bg-opacity-90 transition-colors'
+									aria-label='Wyślij wiadomość'>
 									Wyślij wiadomość
 								</button>
 							</form>

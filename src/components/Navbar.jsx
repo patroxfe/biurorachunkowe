@@ -28,7 +28,8 @@ const Navbar = () => {
 				<div className='flex items-center justify-between'>
 					<button
 						onClick={() => scrollToTop('/')}
-						className='flex items-center tracking-tight space-x-2 cursor-pointer'>
+						className='flex items-center tracking-tight space-x-2 cursor-pointer'
+						aria-label='Przejdź do strony głównej'>
 						<img src={Logo} alt='Biuro Rachunkowe' className='h-12' />
 						<div className='text-brownMain'>
 							<p className='text-xl font-semibold '>Biuro rachunkowe</p>
@@ -41,7 +42,8 @@ const Navbar = () => {
 					<div className='hidden md:flex items-center space-x-8 text-sm lg:text-base'>
 						<button
 							onClick={() => scrollToTop('/')}
-							className='text-brownMain hover:text-brownMain transition-colors font-medium cursor-pointer'>
+							className='text-brownMain hover:text-brownMain transition-colors font-medium cursor-pointer'
+							aria-label='Przewiń do góry strony głównej'>
 							Strona główna
 						</button>
 						<Link to='/#o-mnie' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
@@ -54,13 +56,19 @@ const Navbar = () => {
 							Cennik
 						</Link>
 						<Link to='/#kontakt'>
-							<button className='bg-brownMain text-white px-6 py-2 rounded-xs hover:bg-gold hover:text-grayish transition-all cursor-pointer duration-300'>
+							<button
+								className='bg-brownMain text-white px-6 py-2 rounded-xs hover:bg-gold hover:text-grayish transition-all cursor-pointer duration-300'
+								aria-label='Przejdź do formularza kontaktowego'>
 								Skontaktuj się
 							</button>
 						</Link>
 					</div>
 
-					<button className='md:hidden text-grayish px-2' onClick={() => setIsOpen(!isOpen)}>
+					<button
+						className='md:hidden text-grayish px-2'
+						onClick={() => setIsOpen(!isOpen)}
+						aria-label={isOpen ? 'Zamknij menu' : 'Otwórz menu'}
+						aria-expanded={isOpen}>
 						<svg
 							className='w-6 h-6'
 							fill='none'
@@ -68,39 +76,47 @@ const Navbar = () => {
 							strokeLinejoin='round'
 							strokeWidth='2'
 							viewBox='0 0 24 24'
-							stroke='currentColor'>
+							stroke='currentColor'
+							aria-hidden='true'>
 							{isOpen ? <path d='M6 18L18 6M6 6l12 12' /> : <path d='M4 6h16M4 12h16M4 18h16' />}
 						</svg>
 					</button>
 				</div>
 
 				{isOpen && (
-					<div className='md:hidden mt-4 space-y-4'>
+					<div className='md:hidden mt-4 space-y-4' role='menu' aria-label='Menu mobilne'>
 						<button
 							onClick={() => scrollToTop('/')}
-							className='block text-grayish hover:text-brownMain transition-colors'>
+							className='block text-grayish hover:text-brownMain transition-colors'
+							aria-label='Przewiń do góry strony głównej'
+							role='menuitem'>
 							Strona główna
 						</button>
 						<Link
 							to='/#o-mnie'
 							className='block text-grayish hover:text-brownMain transition-colors'
-							onClick={closeMenu}>
+							onClick={closeMenu}
+							role='menuitem'>
 							O mnie
 						</Link>
 						<Link
 							to='/#oferta'
 							className='block text-grayish hover:text-brownMain transition-colors'
-							onClick={closeMenu}>
+							onClick={closeMenu}
+							role='menuitem'>
 							Oferta
 						</Link>
 						<Link
 							to='/cennik'
 							className='block text-grayish hover:text-brownMain transition-colors'
-							onClick={closeMenu}>
+							onClick={closeMenu}
+							role='menuitem'>
 							Cennik
 						</Link>
-						<Link to='/#kontakt' onClick={closeMenu}>
-							<button className='w-full bg-brownMain text-white px-6 py-2 rounded hover:bg-opacity-90 transition-colors'>
+						<Link to='/#kontakt' onClick={closeMenu} role='menuitem'>
+							<button
+								className='w-full bg-brownMain text-white px-6 py-2 rounded hover:bg-opacity-90 transition-colors'
+								aria-label='Przejdź do formularza kontaktowego'>
 								Skontaktuj się
 							</button>
 						</Link>
