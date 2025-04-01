@@ -1,8 +1,9 @@
-import AboutMe from '../components/AboutMe'
-import Contact from '../components/Contact'
-import Header from '../components/Header'
-import Newsletter from '../components/Newsletter'
-import Services from '../components/Services'
+import AboutMe from '../components/AboutMe';
+import Contact from '../components/Contact';
+import Header from '../components/Header';
+import Newsletter from '../components/Newsletter';
+import Reviews from '../components/Reviews';
+import Services from '../components/Services';
 
 const Home = () => {
 	return (
@@ -10,10 +11,11 @@ const Home = () => {
 			<Header />
 			<AboutMe />
 			<Services />
+			<Reviews />
 			<Contact />
 			<Newsletter />
 		</div>
-	)
-}
+	);
+};
 
-export default Home
+export default Home;
