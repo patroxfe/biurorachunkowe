@@ -1,7 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../assets/logo.png'
 
 const Footer = () => {
+	// Funkcja do przewijania na górę
+	const scrollToTop = path => {
+		if (location.pathname === path) {
+			window.scrollTo({ top: 0, behavior: 'smooth' })
+		} else {
+			navigate(path)
+		}
+	}
+
 	return (
 		<footer className='bg-secondBg'>
 			<div className='wrapper px-4 py-12'>
@@ -18,17 +27,17 @@ const Footer = () => {
 						<h3 className='text-lg font-semibold text-brownMain mb-4'>Menu</h3>
 						<ul className='space-y-2'>
 							<li>
-								<Link to='/' className='text-grayish hover:text-brownMain transition-colors'>
-									Strona główna
+								<Link to='/#' className='text-grayish hover:text-brownMain transition-colors cursor-pointer'>
+									<button onClick={() => scrollToTop('/')} className='cursor-pointer'>Strona główna</button>
 								</Link>
 							</li>
 							<li>
-								<Link to='/o-nas' className='text-grayish hover:text-brownMain transition-colors'>
+								<Link to='/#o-mnie' className='text-grayish hover:text-brownMain transition-colors'>
 									O nas
 								</Link>
 							</li>
 							<li>
-								<Link to='/oferta' className='text-grayish hover:text-brownMain transition-colors'>
+								<Link to='/#oferta' className='text-grayish hover:text-brownMain transition-colors'>
 									Oferta
 								</Link>
 							</li>
@@ -53,9 +62,7 @@ const Footer = () => {
 						<h3 className='text-lg font-semibold text-brownMain mb-4'>Dokumenty</h3>
 						<ul className='space-y-2'>
 							<li>
-								<Link
-									to='/polityka-prywatnosci'
-									className='text-grayish hover:text-brownMain transition-colors'>
+								<Link to='/polityka-prywatnosci' className='text-grayish hover:text-brownMain transition-colors'>
 									Polityka prywatności
 								</Link>
 							</li>

@@ -2,6 +2,7 @@ import React from 'react'
 import heroImage from '../assets/images/hero-img-bro.webp'
 import Button from './Button'
 import { Link } from 'react-router-dom'
+import Typewriter from 'typewriter-effect'
 
 export default function Header() {
 	return (
@@ -13,7 +14,29 @@ export default function Header() {
 							Kompleksowa obsługa <span className='font-semibold'>księgowa i podatkowa</span>
 						</h1>
 						<p className='text-grayish text-lg leading-5'>
-							Moje Biuro Rachunkowe OnLine jest członkiem Stowarzyszenia Księgowych w Polsce!
+							Moje Biuro Rachunkowe OnLine jest członkiem{' '}
+							<p className='font-medium'>
+								<Typewriter
+									onInit={typewriter => {
+										typewriter
+											.typeString('Stowarzyszenia Księgowych w Polsce!')
+											.callFunction(() => {
+												// Ukrycie kursora po 3 sekundach
+												setTimeout(() => {
+													const cursor = document.querySelector('.Typewriter__cursor')
+													if (cursor) {
+														cursor.style.display = 'none'
+													}
+												}, 2500)
+											})
+											.start()
+									}}
+									options={{
+										cursor: '|',
+										delay: 80,
+									}}
+								/>
+							</p>
 						</p>
 						<Link to='/#kontakt'>
 							<Button>Skontaktuj się</Button>

@@ -1,6 +1,6 @@
 const Privacy = () => {
 	return (
-		<div className='pt-48 pb-32'>
+		<div className='pt-48 pb-32 bg-secondBg'>
 			<div className='wrapper px-4'>
 				<h1 className='text-4xl font-semibold text-brownMain text-center mb-12'>Polityka Prywatności</h1>
 
