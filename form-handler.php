@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host       = 'smtp.hostinger.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'kontakt@biurorachunkoweonline.pl';
-        $mail->Password   = '!Reluga16!!';
+        $mail->Password   = ':Fl0bjq$';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
         $mail->CharSet    = 'UTF-8';
@@ -55,22 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $autoReply->Host       = 'smtp.hostinger.com'; // Użyj serwera SMTP dostarczonego przez Hostinger
         $autoReply->SMTPAuth   = true;
         $autoReply->Username   = 'kontakt@biurorachunkoweonline.pl'; // SMTP username
-        $autoReply->Password   = '!Reluga16!!'; // SMTP password
+        $autoReply->Password   = ':Fl0bjq$'; // SMTP password
         $autoReply->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $autoReply->Port       = 587; // Użyj odpowiedniego portu SMTP dostarczonego przez Hostinger
         $autoReply->CharSet    = 'UTF-8';
 
-        $autoReply->setFrom('kontakt@emarika.pl', 'Zespół Emarika');
+        $autoReply->setFrom('kontakt@biurorachunkoweonline.pl', 'Biuro Rachunkowe OnLine | Ewa Reluga');
         $autoReply->addAddress($email); // Odbiorca to adres e-mail, który został podany w formularzu
 
         $autoReply->isHTML(true);
-        $autoReply->Subject = 'Dziękujemy za przesłanie formularza';
+        $autoReply->Subject = 'Dziękuję za przesłanie formularza';
         $autoReply->Body    = "
-        <h2>Dziękujemy za przesłanie formularza</h2>
+        <h2>Dziękuję za przesłanie formularza</h2>
         <p>Drogi $firstName,</p>
-        <p>Dziękujemy za kontakt z nami. Otrzymaliśmy Twoje zgłoszenie i wkrótce się z Tobą skontaktujemy.</p>
-        <p>Pozdrawiamy,<br>Zespół Emarika</p>";
-        $autoReply->AltBody = "Drogi $firstName,\n\nDziękujemy za kontakt z nami. Otrzymaliśmy Twoje zgłoszenie i wkrótce się z Tobą skontaktujemy.\n\nPozdrawiamy,\nZespół Emarika";
+        <p>Dziękuję za kontakt. Otrzymałam Twoje zgłoszenie i wkrótce się z Tobą skontaktuję.</p>
+        <p>Pozdrawiam,<br>Ewa Reluga</p>";
+        $autoReply->AltBody = "Drogi $firstName,\n\nDziękuję za kontakt. Otrzymałam Twoje zgłoszenie i wkrótce się z Tobą skontaktuję.\n\nPozdrawiam,\nEwa Reluga";
 
         $autoReply->send();
         

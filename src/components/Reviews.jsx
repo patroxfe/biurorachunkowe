@@ -5,10 +5,20 @@ const GoogleReviews = () => {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [loading, setLoading] = useState(true)
 	const containerRef = useRef(null)
+	const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
 
 	const getProxiedImageUrl = originalUrl => {
 		return `https://images.weserv.nl/?url=${encodeURIComponent(originalUrl)}`
 	}
+
+	useEffect(() => {
+		// Dodaj listener na zmianę rozmiaru okna
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 768)
+		}
+		window.addEventListener('resize', handleResize)
+		return () => window.removeEventListener('resize', handleResize)
+	}, [])
 
 	useEffect(() => {
 		setLoading(true)
@@ -37,7 +47,7 @@ const GoogleReviews = () => {
 				}
 				return nextIndex
 			})
-		}, 8000)
+		}, 5000)
 
 		return () => clearInterval(interval)
 	}, [reviews.length])
@@ -50,8 +60,9 @@ const GoogleReviews = () => {
 		))
 	}
 
+	// Oblicz wartość przesunięcia w zależności od szerokości ekranu
 	const trackStyle = {
-		transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+		transform: isMobile ? `translateX(-${currentIndex * 104}%)` : `translateX(-${currentIndex * (103 / 3)}%)`,
 		transition: 'transform 1s ease-in-out',
 	}
 
@@ -68,35 +79,35 @@ const GoogleReviews = () => {
 	)
 
 	return (
-		<section className='bg-secondBg py-16 px-8 overflow-hidden'>
+		<section className='bg-secondBg py-16 px-4 md:px-8 overflow-hidden'>
 			<p className='text-sm text-brownMain text-center'>Opinie</p>
 			<h2 className='text-3xl font-semibold text-brownMain text-center mb-8'>Opinie naszych klientów</h2>
-			<div className='wrapper mx-auto relative overflow-hidden' ref={containerRef}>
+			<div className='max-w-6xl mx-auto relative overflow-hidden' ref={containerRef}>
 				{loading ? (
 					<Loader />
 				) : reviews.length > 0 ? (
 					<div
-						className='flex gap-8 w-full [backface-visibility:hidden] [transform-style:preserve-3d]'
+						className='flex gap-4 md:gap-8 w-full [backface-visibility:hidden] [transform-style:preserve-3d]'
 						style={trackStyle}>
 						{duplicatedReviews.map((review, index) => {
 							return (
 								<div
 									key={index}
-									className='flex-none w-[calc(33.333%-1.33rem)] bg-white rounded-xl p-8 shadow-md transition-transform duration-300 opacity-80 scale-95 hover:translate-y-[-5px] hover:scale-100 hover:opacity-100'>
-									<div className='flex justify-between items-start mb-6'>
-										<div className='flex items-center gap-4'>
+									className='flex-none w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-xl p-4 md:p-8 shadow-md transition-transform duration-300 opacity-80 scale-95 hover:translate-y-[-5px] hover:scale-100 hover:opacity-100'>
+									<div className='flex justify-between items-start mb-4 md:mb-6'>
+										<div className='flex items-center gap-3 md:gap-4'>
 											<img
 												src={getProxiedImageUrl(review.profile_photo_url)}
 												alt={review.author_name}
-												className='w-[50px] h-[50px] rounded-full object-cover [backface-visibility:hidden]'
+												className='w-10 h-10 md:w-[50px] md:h-[50px] rounded-full object-cover [backface-visibility:hidden]'
 												loading='lazy'
 											/>
 											<div>
-												<h3 className='m-0 text-lg text-gray-800'>{review.author_name}</h3>
-												<div className='mt-2'>{renderStars(review.rating)}</div>
+												<h3 className='m-0 text-base md:text-lg text-gray-800'>{review.author_name}</h3>
+												<div className='mt-1 md:mt-2'>{renderStars(review.rating)}</div>
 											</div>
 										</div>
-										<div className='text-gray-500 text-sm'>
+										<div className='text-gray-500 text-xs md:text-sm'>
 											{new Date(review.time * 1000).toLocaleDateString('pl-PL')}
 										</div>
 									</div>
