@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 const GoogleReviews = () => {
 	const [reviews, setReviews] = useState([])
 	const [currentIndex, setCurrentIndex] = useState(0)
+	const [loading, setLoading] = useState(true)
 	const containerRef = useRef(null)
 
 	const getProxiedImageUrl = originalUrl => {
@@ -10,6 +11,7 @@ const GoogleReviews = () => {
 	}
 
 	useEffect(() => {
+		setLoading(true)
 		fetch(import.meta.env.VITE_GOOGLE_SCRIPT_REVIEWS_URL)
 			.then(response => {
 				return response.json()
@@ -18,8 +20,12 @@ const GoogleReviews = () => {
 				if (data.result.reviews) {
 					setReviews(data.result.reviews)
 				}
+				setLoading(false)
 			})
-			.catch(error => console.error('Błąd:', error))
+			.catch(error => {
+				console.error('Błąd:', error)
+				setLoading(false)
+			})
 	}, [])
 
 	useEffect(() => {
@@ -51,12 +57,24 @@ const GoogleReviews = () => {
 
 	const duplicatedReviews = [...reviews, ...reviews.slice(0, 3)]
 
+	const Loader = () => (
+		<div className='flex flex-col items-center justify-center py-12'>
+			<div className='relative w-20 h-20'>
+				<div className='absolute top-0 left-0 w-full h-full border-4 border-gray-200 rounded-full'></div>
+				<div className='absolute top-0 left-0 w-full h-full border-4 border-brownMain rounded-full animate-spin border-t-transparent'></div>
+			</div>
+			<p className='mt-4 text-brownMain font-medium'>Ładowanie opinii...</p>
+		</div>
+	)
+
 	return (
 		<section className='bg-secondBg py-16 px-8 overflow-hidden'>
 			<p className='text-sm text-brownMain text-center'>Opinie</p>
 			<h2 className='text-3xl font-semibold text-brownMain text-center mb-8'>Opinie naszych klientów</h2>
 			<div className='wrapper mx-auto relative overflow-hidden' ref={containerRef}>
-				{reviews.length > 0 ? (
+				{loading ? (
+					<Loader />
+				) : reviews.length > 0 ? (
 					<div
 						className='flex gap-8 w-full [backface-visibility:hidden] [transform-style:preserve-3d]'
 						style={trackStyle}>
@@ -91,18 +109,20 @@ const GoogleReviews = () => {
 					<p className='text-center text-gray-500 text-lg'>Brak opinii</p>
 				)}
 			</div>
-			<div className='flex justify-center gap-2 mt-8'>
-				{reviews.map((_, index) => (
-					<button
-						key={index}
-						className={`w-2.5 h-2.5 rounded-full border-none cursor-pointer p-0 transition-colors duration-300 ${
-							index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
-						}`}
-						onClick={() => setCurrentIndex(index)}
-						aria-label={`Przejdź do opinii ${index + 1}`}
-					/>
-				))}
-			</div>
+			{!loading && reviews.length > 0 && (
+				<div className='flex justify-center gap-2 mt-8'>
+					{reviews.map((_, index) => (
+						<button
+							key={index}
+							className={`w-2.5 h-2.5 rounded-full border-none cursor-pointer p-0 transition-colors duration-300 ${
+								index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
+							}`}
+							onClick={() => setCurrentIndex(index)}
+							aria-label={`Przejdź do opinii ${index + 1}`}
+						/>
+					))}
+				</div>
+			)}
 		</section>
 	)
 }
