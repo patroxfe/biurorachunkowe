@@ -90,6 +90,7 @@ const pricingData = {
 					price: '15zł sztuka',
 				},
 				{ service: 'Korekta deklaracji z winy klienta', price: '50zł' },
+				{ service: 'Złożenie zaległej deklaracji', price: '50zł' },
 				{ service: 'Korekta raportów w ZUS', price: '30zł sztuka' },
 				{ service: 'Sporządzenie sprawozdań dla banku, do ubezpieczenia etc.', price: '40zł sztuka' },
 				{ service: 'Sprawozdanie do GUS', price: '30zł za godzinę' },
