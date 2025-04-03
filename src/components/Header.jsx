@@ -14,7 +14,7 @@ export default function Header() {
 							Kompleksowa obsługa <span className='font-semibold'>księgowa i podatkowa</span>
 						</h1>
 						<div className='text-grayish text-lg leading-5 flex flex-col justify-center lg:justify-start'>
-							<p>Moje Biuro Rachunkowe OnLine jest członkiem </p>
+							<p>Biuro Rachunkowe OnLine jest członkiem </p>
 							<span className='font-medium'>
 								<Typewriter
 									onInit={typewriter => {
