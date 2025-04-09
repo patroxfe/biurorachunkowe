@@ -42,7 +42,7 @@ export default function Header() {
 						</Link>
 					</div>
 					<div className='relative overflow-x-hidden'>
-						<img src={heroImage} alt='Księgowa' className='rounded-lg  lg:ml-16' />
+						<img src={heroImage} alt='Księgowa' className='rounded-lg w-[350px] ml-5 lg:ml-24' />
 					</div>
 				</div>
 			</div>

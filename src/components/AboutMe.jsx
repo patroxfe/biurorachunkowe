@@ -17,7 +17,7 @@ export default function AboutMe() {
 							Księgowych w Polsce. Księgowością zajmuję się od 7 lat. Specjalizuję się w Podatku dochodowym od osób
 							fizycznych, Jednoosobowych działalnościach gospodarczych oraz Spółkach cywilnych. Rozliczam ulgę IP BOX.
 						</p>
-						<Link to='/#oferta'>
+						<Link to='/uslugi'>
 							<Button>Sprawdź ofertę</Button>
 						</Link>
 					</div>
