@@ -90,7 +90,7 @@ const Footer = () => {
 						</p>
 						<p className='text-sm text-grayish mt-4 md:mt-0'>
 							Strona wykonana przez{' '}
-							<a href='https://emetrica.pl' target='_blank' className='text-brownMain font-semibold hover:underline'>
+							<a href='https://emarika.pl' target='_blank' className='text-brownMain font-semibold hover:underline'>
 								emarika.pl
 							</a>
 						</p>
