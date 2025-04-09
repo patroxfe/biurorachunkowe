@@ -107,13 +107,6 @@ const Navbar = () => {
 							Usługi
 						</Link>
 						<Link
-							to='/#oferta'
-							className='block text-grayish hover:text-brownMain transition-colors'
-							onClick={closeMenu}
-							role='menuitem'>
-							Oferta
-						</Link>
-						<Link
 							to='/cennik'
 							className='block text-grayish hover:text-brownMain transition-colors'
 							onClick={closeMenu}
