@@ -79,7 +79,7 @@ const GoogleReviews = () => {
 	)
 
 	return (
-		<section className='bg-secondBg py-16 px-4 md:px-8 overflow-hidden'>
+		<section className='bg-mainBg py-16 px-4 md:px-8 overflow-hidden'>
 			<p className='text-sm text-brownMain text-center'>Opinie</p>
 			<h2 className='text-3xl font-semibold text-brownMain text-center mb-8'>Opinie naszych klientów</h2>
 			<div className='max-w-6xl mx-auto relative overflow-hidden' ref={containerRef}>
@@ -87,13 +87,13 @@ const GoogleReviews = () => {
 					<Loader />
 				) : reviews.length > 0 ? (
 					<div
-						className='flex gap-4 md:gap-8 w-full [backface-visibility:hidden] [transform-style:preserve-3d]'
+						className='flex gap-4 md:gap-8 w-full [backface-visibility:hidden] [transform-style:preserve-3d] pt-4'
 						style={trackStyle}>
 						{duplicatedReviews.map((review, index) => {
 							return (
 								<div
 									key={index}
-									className='flex-none w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-xl p-4 md:p-8 shadow-md transition-transform duration-300 opacity-80 scale-95 hover:translate-y-[-5px] hover:scale-100 hover:opacity-100'>
+									className='flex-none w-full md:w-[calc(33.333%-1.33rem)] bg-secondBg rounded-xl p-4 md:p-8 shadow-md transition-transform duration-300 opacity-80 scale-95 hover:translate-y-[-5px] hover:scale-100 hover:opacity-100'>
 									<div className='flex justify-between items-start mb-4 md:mb-6'>
 										<div className='flex items-center gap-3 md:gap-4'>
 											<img
@@ -126,7 +126,7 @@ const GoogleReviews = () => {
 						<button
 							key={index}
 							className={`w-2.5 h-2.5 rounded-full border-none cursor-pointer p-0 transition-colors duration-300 ${
-								index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
+								index === currentIndex ? 'bg-brownMain' : 'bg-secondBg'
 							}`}
 							onClick={() => setCurrentIndex(index)}
 							aria-label={`Przejdź do opinii ${index + 1}`}

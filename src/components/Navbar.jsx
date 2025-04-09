@@ -34,7 +34,7 @@ const Navbar = () => {
 						<div className='text-brownMain'>
 							<p className='text-xl font-semibold '>Biuro rachunkowe</p>
 							<p className='font-semibold text-left'>
-								OnLine <span className='font-normal'>| Ewa Reluga</span>
+								<span className='text-red-700'>On</span>Line <span className='font-normal'>| Ewa Reluga</span>
 							</p>
 						</div>
 					</button>
@@ -49,8 +49,8 @@ const Navbar = () => {
 						<Link to='/#o-mnie' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
 							O mnie
 						</Link>
-						<Link to='/#oferta' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
-							Oferta
+						<Link to='/uslugi' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
+							Usługi
 						</Link>
 						<Link to='/cennik' className='text-brownMain hover:text-brownMain transition-colors font-medium'>
 							Cennik
@@ -98,6 +98,13 @@ const Navbar = () => {
 							onClick={closeMenu}
 							role='menuitem'>
 							O mnie
+						</Link>
+						<Link
+							to='/uslugi'
+							className='block text-grayish hover:text-brownMain transition-colors'
+							onClick={closeMenu}
+							role='menuitem'>
+							Usługi
 						</Link>
 						<Link
 							to='/#oferta'
