@@ -1,6 +1,7 @@
 import React from 'react'
 import certyfikat1 from '../assets/images/certyfikat1.webp'
 import certyfikat2 from '../assets/images/certyfikat2.webp'
+import certyfikat3 from '../assets/images/certyfikat3.webp'
 import Button from './Button'
 import { Link } from 'react-router-dom'
 
@@ -22,9 +23,10 @@ export default function AboutMe() {
 						</Link>
 					</div>
 				</div>
-				<div className='flex justify-between sm:justify-baseline sm:space-x-10 overflow-x-hidden'>
-					<img src={certyfikat1} alt='Księgowa' className='max-w-[45%] object-contain' />
-					<img src={certyfikat2} alt='Księgowa' className='max-w-[45%] object-contain' />
+				<div className='flex flex-col md:flex-row  items-center md:justify-between sm:justify-baseline md:space-x-5 space-y-5 md:space-y-0 overflow-x-hidden'>
+					<img src={certyfikat1} alt='Księgowa' className='max-w-[300px] md:max-w-[31%] object-contain' />
+					<img src={certyfikat2} alt='Księgowa' className='max-w-[300px] md:max-w-[31%] object-contain' />
+					<img src={certyfikat3} alt='Księgowa' className='max-w-[245px] md:max-w-[32%] object-contain' />
 				</div>
 			</div>
 			<div></div>
