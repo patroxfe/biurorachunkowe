@@ -1,15 +1,15 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Logo from '../assets/logo.png'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../assets/logo.png';
 
 const Footer = () => {
 	// Funkcja do przewijania na górę
-	const scrollToTop = path => {
+	const scrollToTop = (path) => {
 		if (location.pathname === path) {
-			window.scrollTo({ top: 0, behavior: 'smooth' })
+			window.scrollTo({ top: 0, behavior: 'smooth' });
 		} else {
-			navigate(path)
+			navigate(path);
 		}
-	}
+	};
 
 	return (
 		<footer className='bg-mainBg'>
@@ -27,24 +27,39 @@ const Footer = () => {
 						<h3 className='text-lg font-semibold text-brownMain mb-4'>Menu</h3>
 						<ul className='space-y-2'>
 							<li>
-								<Link to='/#' className='text-grayish hover:text-brownMain transition-colors cursor-pointer'>
-									<button onClick={() => scrollToTop('/')} className='cursor-pointer'>
+								<Link
+									to='/#'
+									className='text-grayish hover:text-brownMain transition-colors cursor-pointer'
+								>
+									<button
+										onClick={() => scrollToTop('/')}
+										className='cursor-pointer'
+									>
 										Strona główna
 									</button>
 								</Link>
 							</li>
 							<li>
-								<Link to='/#o-mnie' className='text-grayish hover:text-brownMain transition-colors'>
+								<Link
+									to='/#o-mnie'
+									className='text-grayish hover:text-brownMain transition-colors'
+								>
 									O nas
 								</Link>
 							</li>
 							<li>
-								<Link to='/uslugi' className='text-grayish hover:text-brownMain transition-colors'>
+								<Link
+									to='/uslugi'
+									className='text-grayish hover:text-brownMain transition-colors'
+								>
 									Usługi
 								</Link>
 							</li>
 							<li>
-								<Link to='/cennik' className='text-grayish hover:text-brownMain transition-colors'>
+								<Link
+									to='/cennik'
+									className='text-grayish hover:text-brownMain transition-colors'
+								>
 									Cennik
 								</Link>
 							</li>
@@ -52,30 +67,40 @@ const Footer = () => {
 					</div>
 
 					<div>
-						<h3 className='text-lg font-semibold text-brownMain mb-4'>Kontakt</h3>
+						<h3 className='text-lg font-semibold text-brownMain mb-4'>
+							Kontakt
+						</h3>
 						<ul className='space-y-2'>
 							<li className='text-grayish'>
 								<a
-									href='https://www.google.com/maps/place/Wybickiego+4/42,+Grójec'
+									href='https://maps.app.goo.gl/fs5VwnZQwv7U1hQ26'
 									target='_blank'
-									rel='noopener noreferrer'>
-									Wybickiego 4/42, Grójec
+									rel='noopener noreferrer'
+								>
+									Ul. Polskiej Organizacji Wojskowej 1C/44
 								</a>
 							</li>
 							<li className='text-grayish'>
 								<a href='tel:+48605541681'>+48 605 541 681</a>
 							</li>
 							<li className='text-grayish'>
-								<a href='mailto:ewa.reluga@outlook.com'>ewa.reluga@outlook.com</a>
+								<a href='mailto:ewa.reluga@outlook.com'>
+									ewa.reluga@outlook.com
+								</a>
 							</li>
 						</ul>
 					</div>
 
 					<div>
-						<h3 className='text-lg font-semibold text-brownMain mb-4'>Dokumenty</h3>
+						<h3 className='text-lg font-semibold text-brownMain mb-4'>
+							Dokumenty
+						</h3>
 						<ul className='space-y-2'>
 							<li>
-								<Link to='/polityka-prywatnosci' className='text-grayish hover:text-brownMain transition-colors'>
+								<Link
+									to='/polityka-prywatnosci'
+									className='text-grayish hover:text-brownMain transition-colors'
+								>
 									Polityka prywatności
 								</Link>
 							</li>
@@ -86,11 +111,16 @@ const Footer = () => {
 				<div className='mt-12 pt-8 border-t border-stone-300'>
 					<div className='flex flex-col md:flex-row justify-between items-center'>
 						<p className='text-sm text-grayish'>
-							© {new Date().getFullYear()} Biuro Rachunkowe. Wszelkie prawa zastrzeżone.
+							© {new Date().getFullYear()} Biuro Rachunkowe. Wszelkie prawa
+							zastrzeżone.
 						</p>
 						<p className='text-sm text-grayish mt-4 md:mt-0'>
 							Strona wykonana przez{' '}
-							<a href='https://emarika.pl' target='_blank' className='text-brownMain font-semibold hover:underline'>
+							<a
+								href='https://emarika.pl'
+								target='_blank'
+								className='text-brownMain font-semibold hover:underline'
+							>
 								emarika.pl
 							</a>
 						</p>
@@ -98,7 +128,7 @@ const Footer = () => {
 				</div>
 			</div>
 		</footer>
-	)
-}
+	);
+};
 
-export default Footer
+export default Footer;
