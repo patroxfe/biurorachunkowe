@@ -5,6 +5,7 @@ import mailIcon from '../assets/icons/mailIcon.svg';
 import locationIcon from '../assets/icons/locationIcon.svg';
 import timeIcon from '../assets/icons/timeIcon.svg';
 import fbIcon from '../assets/icons/fbIcon.svg';
+import lkIcon from '../assets/icons/linkedin.svg';
 import axios from 'axios';
 
 const contactData = {
@@ -123,9 +124,17 @@ export default function Contact() {
 									href='https://www.facebook.com/profile.php?id=61571016414548'
 									target='_blank'
 									rel='noopener noreferrer'
-									className='inline-block'
+									className='inline-block pr-2'
 								>
 									<img src={fbIcon} alt='Facebook' className='w-8 h-8' />
+								</a>
+								<a
+									href='https://www.linkedin.com/in/ewa-reluga-650aa6190'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='inline-block'
+								>
+									<img src={lkIcon} alt='Facebook' className='w-8 h-8' />
 								</a>
 								<a
 									href='https://www.iksiegowosc24.pl/'
