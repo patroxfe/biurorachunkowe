@@ -129,7 +129,7 @@ export default function Contact() {
 									<img src={fbIcon} alt='Facebook' className='w-8 h-8' />
 								</a>
 								<a
-									href='https://www.linkedin.com/in/ewa-reluga-650aa6190'
+									href='https://pl.linkedin.com/company/biuro-rachunkowe-online-ewa-reluga'
 									target='_blank'
 									rel='noopener noreferrer'
 									className='inline-block'
